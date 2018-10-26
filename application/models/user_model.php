@@ -23,23 +23,15 @@ class User_model extends CI_Model{
             'username' => $username
             ]);
         $query = $this->db->get('users');
-        return $query->result();  //Number of fileds of a rows.(num_fields)
+        return $query->result();  
 
 
 
 
+    }
 
-
-
-
-
-
-
-
-
-
-
-
+    public function create_users($data){
+        $this->db->insert('users',$data);
     }
 
 
