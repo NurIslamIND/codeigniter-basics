@@ -34,6 +34,25 @@
 
 
 
+        public function update(){
+            $id = 4;
+            $username = "William";
+            $password = "secret545";
+
+            $this->user_model->update_users([
+                'username' =>$username,
+                'password' =>$password
+            ],$id);
+        }
+
+
+        public function delete(){
+            $id= 5;
+            $this->user_model->delete_users($id);
+        }
+
+
+
     }
 
 
