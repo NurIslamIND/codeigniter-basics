@@ -1,7 +1,7 @@
 <?php
 
 class User_model extends CI_Model{
-
+/*
     public function get_users($user_id,$username){
         // $config['hostname'] = "localhost";
         // $config['username'] = "root";
@@ -44,8 +44,22 @@ class User_model extends CI_Model{
         $this->db->where(['id'=> $id]);
         $this->db->delete('users');
     }
+    */
 
 
+
+    public function login_user($username, $password){
+        $this->db->where('username', $username);
+        $this->db->where('password', $password);
+
+        $result = $this->db->get('users');
+
+        if($result->num_rows() == 1){
+            return $result->row(0)->username;
+        } else {
+            return false;
+        }
+    }
 
 
 
