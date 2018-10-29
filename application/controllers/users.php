@@ -18,12 +18,15 @@
                 $password = $this->input->post('password');
 
 
-                $user_id = $this->user_model->login_user($username, $password);
-
-                if($user_id){
+                $user_details = $this->user_model->login_user($username, $password);
+                // print_r($user_id);
+                // die();
+                //echo $user_details-> username;
+                //die();
+                if($user_details-> id){
                     $user_data = array(
-                        'user_id' => $user_id,
-                        'username' => $username,
+                        'user_id' => $user_details-> id,
+                        'username' => $user_details-> username,
                         'logged_in' => true
                      );
                      $this->session->set_userdata($user_data);
